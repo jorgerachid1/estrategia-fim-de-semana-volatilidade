@@ -48,6 +48,21 @@ Estratégia diferente da anterior: em vez de um collar toda semana, aqui a base 
 - Nesses 27 fins de semana, o retorno médio do S&P 500 puro foi -0,16%; com o booster, -0,04% — a put ajudou exatamente quando foi usada. Em 13 das 27 vezes (48%), a put pagou mais do que seu prêmio.
 - No agregado dos 10 anos, o booster **custou retorno** (10,4% vs. 11,7% a.a.) — o prêmio pago nas vezes sem crash pesou mais que o ganho nas vezes com crash — mas **reduziu o drawdown máximo em ~3,6 pontos percentuais** (-30,5% vs. -34,1%), com boa parte do benefício vindo da proteção real durante o crash de março de 2020. Funciona como um seguro: custo pequeno e recorrente, benefício concentrado nos eventos de cauda.
 
+### O booster testado em TODOS os níveis de VIX
+
+Para não assumir que "VIX muito alto" é o único gatilho que faz sentido, o mesmo booster foi testado isoladamente em cada uma das 4 faixas de VIX (Baixa, Moderada, Alta, Muito alta) e também "em todo gap, qualquer VIX":
+
+| Gatilho do booster | Nº de fins de semana | Prêmio médio pago | Retorno anualizado | Max drawdown |
+|---|---|---|---|---|
+| (sem booster — Buy & Hold puro) | — | — | 11,7% a.a. | -34,1% |
+| Só em VIX Baixa (<15) | 211 | 0,0001% | 10,0% a.a. | -36,1% |
+| Só em VIX Moderada (15-20) | 146 | 0,0017% | 10,0% a.a. | -36,1% |
+| Só em VIX Alta (20-30) | 128 | 0,0078% | 9,9% a.a. | -36,1% |
+| Só em VIX Muito alta (>30) | 27 | 0,2661% | 10,4% a.a. | **-30,5%** |
+| Em todo gap, qualquer VIX | 512 | 0,0165% | 10,5% a.a. | -30,5% |
+
+**Resultado claro: só o gatilho "VIX muito alta" (>30) melhora o drawdown máximo.** Os gatilhos "Baixa", "Moderada" e "Alta" custam retorno **e ainda pioram** o drawdown máximo (para -36,1%, pior que nem ter booster) — porque compram proteção em momentos que não coincidem com as quedas mais fortes do período, que aconteceram especificamente durante janelas de VIX>30 (como março de 2020). O booster de put só compensa quando usado como seguro genuinamente condicional a um regime de estresse real; comprar proteção "por via das dúvidas" em VIX baixo ou moderado adiciona custo sem adicionar proteção útil.
+
 **Aviso:** projeto educacional/estatístico com um único ativo e ~10 anos de dados, sem custos de transação, corretagem ou impostos. Os prêmios de opções são **teóricos** (modelo Black-Scholes com volatilidade realizada como proxy), não preços de mercado realmente negociados. O VIX mede a volatilidade esperada do S&P 500, não da AAPL especificamente. Não é recomendação de investimento.
 
 ## Arquivos
