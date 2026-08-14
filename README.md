@@ -18,15 +18,17 @@ Em períodos de muita incerteza, investidores tendem a evitar ficar posicionados
 2. Esse efeito é mais forte em semanas de alta volatilidade?
 3. Uma estratégia que compra no fechamento de sexta e vende no fechamento de segunda supera o buy & hold?
 4. Imitar o comportamento de manada (evitar ficar posicionado no fim de semana) funciona?
+5. É possível combinar o buy & hold com uma proteção via **opções** especificamente para o risco do fim de semana?
 
 ## Principais achados (AAPL, 02/01/2015–29/11/2024 · ~10 anos, 2.494 pregões)
 
 - Retorno médio de segunda-feira (+0,21%) maior que o dos demais dias (+0,06%), mas a diferença **não é estatisticamente significativa** mesmo com 10 anos de dados (t=1,484; p ≈ 0,138) — sinal na direção esperada, mas fraco para confirmar o efeito.
 - Sem diferença significativa entre regimes de alta e baixa volatilidade para o retorno de segunda (t=-0,144; p ≈ 0,885) nesta amostra.
 - No backtest de 10 anos, o **Buy & Hold** teve o melhor retorno anualizado (25,9% a.a.) e o melhor Sharpe (0,81), puxado pela forte valorização da AAPL no período. A estratégia "compra sexta / vende segunda" rendeu menos em termos absolutos (10,3% a.a.), mas com volatilidade e drawdown muito menores (-22,0% vs. -38,5%) e Sharpe próximo do buy & hold — um perfil de risco mais eficiente por dia exposto ao mercado, não uma forma de bater o buy & hold em retorno.
+- **Estratégia combinada (Buy & Hold + collar de opções no fim de semana):** fica sempre posicionada na ação (como o buy & hold), mas a cada sexta-feira monta um *collar* (compra put + vende call, ambas ~3% fora do dinheiro, expirando na segunda) para limitar o risco especificamente no gap do fim de semana. Resultado: 24,6% a.a. (vs. 25,9% do buy & hold puro), volatilidade um pouco menor (27,4% vs. 28,6%) e drawdown máximo um pouco menor (-38,1% vs. -38,5%) — mantém quase todo o retorno de longo prazo e reduz uma fatia real do risco de cauda, sem precisar sair do mercado. Os prêmios das opções foram **estimados via Black-Scholes** (não há dados reais de opções disponíveis neste ambiente) — ver aviso abaixo.
 - Ver a seção "Leitura crítica" no notebook: com uma janela maior de dados, fica claro que ficar fora do mercado (mesmo que só nos fins de semana) tem custo de oportunidade alto quando o ativo sobe muito no longo prazo — o resultado do backtest não deve ser confundido com significância estatística confirmada.
 
-**Aviso:** projeto educacional/estatístico com um único ativo e ~10 anos de dados, sem custos de transação. Não é recomendação de investimento.
+**Aviso:** projeto educacional/estatístico com um único ativo e ~10 anos de dados, sem custos de transação, corretagem ou impostos. Os prêmios de opções são **teóricos** (modelo Black-Scholes com volatilidade realizada como proxy), não preços de mercado realmente negociados. Não é recomendação de investimento.
 
 ## Arquivos
 
